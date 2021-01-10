@@ -1,17 +1,37 @@
 import { connect } from "react-redux"
-import { openMenu } from "../../redux/header-reducer"
+import { hideLoader, openMenu } from "../../redux/header-reducer"
 import Header from "./Header"
+import React from 'react'
 
+class HeaderClass extends React.Component {
 
-let mapStateToProps = (state) => {
-    return {
-        state: state.headerReducer
+    componentDidMount() {
+        setTimeout( () => this.hideLoader(), 650)
     }
+    hideLoader() {
+        this.props.hideLoader()
+    }
+    render() {
+        return (
+            <Header {...this.props}></Header>
+        )
+    }
+    
+
 }
 
 
 
-let HeaderContainer = connect(mapStateToProps,{openMenu})(Header)
+let mapStateToProps = (state) => {
+    return {
+        isMobileMenuOpen: state.headerReducer.isMobileMenuOpen,
+        srcLogo: state.headerReducer.srcLogo,
+        
+        svgList: state.headerReducer.svgList
+    }
+}
+
+let HeaderContainer = connect(mapStateToProps,{openMenu, hideLoader})(HeaderClass)
 
 
 export default HeaderContainer
