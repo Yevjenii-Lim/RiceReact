@@ -14,9 +14,14 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: red;
+    background-color: white;
     transition: 0.3s;
     transform: translateY(-100%);
+    padding: 1em;
+    box-sizing: border-box;
+}
+.allMenu {
+    margin-top: 20px;
 }
 .openMenu {
     transform: translateY(0%);
@@ -25,8 +30,6 @@
 .closeMenu {
     transform: translateY(-100%);
 }
-
-
 .logo {
     width: 114px;
     height: 48px;
@@ -39,5 +42,43 @@
 .mobileTop {
     display: flex;
     justify-content: space-between;
-    padding: 1em;
+}
+
+.menuList {
+    /* transform: scaleY(0); */
+    transition: 0.5s;
+    margin-top: 0;
+    margin-bottom: 10px;
+    /* display: none; */
+}
+.menuList li {
+    padding: 5px;
+}
+.menuItem {
+    vertical-align: middle;
+}
+.menuItem div {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+.menuItem p span {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.subMenuOpen {
+    display: block;
+}
+.subMenuClose {
+    display: none;
+}
+.chevron {
+    transition: 0.5s;
+}
+.chevronUp {
+    transform: rotate(0deg);
+}
+
+.chevronRound {
+    transform: rotate(180deg);
 }
