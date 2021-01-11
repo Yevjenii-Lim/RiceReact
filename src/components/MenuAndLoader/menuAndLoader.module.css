@@ -9,3 +9,35 @@
 .hideLoader {
     display: none;
 }
+
+.mobileMenu {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    transition: 0.3s;
+    transform: translateY(-100%);
+}
+.openMenu {
+    transform: translateY(0%);
+}
+
+.closeMenu {
+    transform: translateY(-100%);
+}
+
+
+.logo {
+    width: 114px;
+    height: 48px;
+}
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.mobileTop {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}

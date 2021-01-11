@@ -2,8 +2,10 @@
     display: flex;
     justify-content: space-between;
     position: fixed;
-    width: 100%;
+    width: 500px;
     box-sizing: border-box;
+    align-items: center;
+    padding: 0 1em;
 }
 .logo {
     width: 114px;
@@ -13,18 +15,29 @@
     width: 100%;
     height: 100%;
 }
-.mobileMenu {
-    position: absolute;
-    width: 100%;
-    height: 80%;
-    background-color: red;
-    transition: 0.3s;
-    transform: translateY(-100%);
-}
-.openMenu {
-    transform: translateY(0%);
+
+.navBarUl {
+    display: flex;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+    width: 40%;
+    justify-content: space-between;
 }
 
-.closeMenu {
-    transform: translateY(-100%);
+.headerNav {
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-top: -3px;
+    outline: none;
+    padding: 0;
+}
+
