@@ -13,11 +13,10 @@ let initialState = {
     srcLogo: logo,
     isShowLoader: true,
     svgList: [
-        {code: <Instagram></Instagram>},
-        {code: <PhoneCall></PhoneCall>},
-        {code: <ShopingCart></ShopingCart>}
-
-    ]
+        {code: <Instagram></Instagram>, link:'https://rice.ks.ua/'},
+        {code: <PhoneCall></PhoneCall>, link: '+380 50 678 43 20'},
+        {code: <ShopingCart></ShopingCart>, link: '/cart'}
+    ],
 }
 
 

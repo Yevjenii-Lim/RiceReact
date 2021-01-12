@@ -9,7 +9,6 @@
 .hideLoader {
     display: none;
 }
-
 .mobileMenu {
     position: absolute;
     width: 100%;
@@ -20,8 +19,26 @@
     padding: 1em;
     box-sizing: border-box;
 }
+.btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-top: -3px;
+    outline: none;
+    padding: 0;
+}
 .allMenu {
     margin-top: 20px;
+}
+.allMenu > div {
+    padding: 1em 0;
+
+}
+.allMenu > div + div {
+    border-top: 1px solid black;
+}
+.allMenu > div:last-child {
+    border-bottom: 1px solid black
 }
 .openMenu {
     transform: translateY(0%);
@@ -54,17 +71,22 @@
 .menuList li {
     padding: 5px;
 }
-.menuItem {
-    vertical-align: middle;
-}
 .menuItem div {
     display: flex;
     align-items: center;
-    margin: 0;
+   
+}
+.menuItem {
+   
 }
 .menuItem p span {
     margin-top: 5px;
     margin-left: 10px;
+}
+.menuItem p {
+    margin: 0;
+    height: 20px;
+    margin-top: -5px;
 }
 .subMenuOpen {
     display: block;
@@ -81,4 +103,20 @@
 
 .chevronRound {
     transform: rotate(180deg);
+}
+
+
+.numbers {
+    text-align: center;
+}
+.numbers a {
+    text-decoration: none;
+    color: black;
+}
+.numbers a p {
+    font-weight: bold;
+}
+
+.inst {
+
 }

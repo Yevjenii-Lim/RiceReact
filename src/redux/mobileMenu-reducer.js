@@ -12,22 +12,34 @@ let initialState = {
         {name: 'Лапша/Рис', id:4},
         {name: 'Салаты', id:5},
         {name: 'Маки', id:6}
+    ],
+    mobileNumbers: [
+        {number:'+380 50 678 43 20',id: 1},
+        {number: '+380 68 508 12 20', id: 2}
     ]
 }
 
 let mobileMenuReducer = (state = initialState, action) => {
     switch (action.type) {
         case OPEN_SUB_MENU: {
-            return {
+            if(action.event.target.localName !== 'ul' && action.event.target.localName !== 'li') {
+                return {
                 ...state,
                 isMobileSubMenuOpen: !state.isMobileSubMenuOpen
+                }
+            }else {
+                return state
             }
+          
         }
         case OPEN_ADRESS: {
-            // console.log(state)
-            return {
-                ...state,
-                isAdressOpen: !state.isAdressOpen
+            if(action.event.target.localName !== 'ul' && action.event.target.localName !== 'li') {
+                return {
+                    ...state,
+                    isAdressOpen: !state.isAdressOpen
+                }
+            }else {
+                return state
             }
         }
         default: {
@@ -38,8 +50,7 @@ let mobileMenuReducer = (state = initialState, action) => {
     }
 }
 
-
-export let openSubMenu = () => ({type:OPEN_SUB_MENU})
-export let openAdress = () => ({type: OPEN_ADRESS})
+export let openSubMenu = (event) => ({type:OPEN_SUB_MENU,event})
+export let openAdress = (event) => ({type: OPEN_ADRESS, event})
 
 export default mobileMenuReducer

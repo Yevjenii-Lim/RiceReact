@@ -1,10 +1,11 @@
 import React from "react";
+
 import style from "./style-header.module.css";
 
 let Header = (props) => {
   // debugger
 
-  let liItems = props.svgList.map((i, index) => <li key={index}>{i.code}</li>);
+  let liItems = props.svgList.map((i, index) =><a key={index} href={i.link}> <li >{i.code}</li></a>);
   return (
     <div className={style.header}>
       <div className={style.logo}>

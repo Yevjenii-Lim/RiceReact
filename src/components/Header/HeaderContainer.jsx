@@ -21,7 +21,6 @@ class HeaderClass extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-      
         srcLogo: state.headerReducer.srcLogo,
         svgList: state.headerReducer.svgList
     }
