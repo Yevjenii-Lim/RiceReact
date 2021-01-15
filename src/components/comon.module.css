@@ -1,5 +1,8 @@
 .swiper {
     top: 70px;
+    padding-bottom: 50px;
+    margin-bottom: 100px;
+    border-bottom:1px solid black ;
 }
 
 .swiperPhoto {

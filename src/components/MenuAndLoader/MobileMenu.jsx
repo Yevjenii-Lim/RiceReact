@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { openMenu } from "../../redux/header-reducer";
 import { openAdress, openSubMenu } from "../../redux/mobileMenu-reducer";
 import style from "./menuAndLoader.module.css";
@@ -26,7 +27,7 @@ let MobileMenu = (props) => {
   let rotateAdress = props.isAdressOpen ? style.chevronRound : style.chevronUp;
   let adressChevron = style.chevron + " " + rotateAdress;
 
-  let mobileNumbers = props.mobileNumbers.map(i => <a href='#' key={i.id}><p>{i.number}</p></a>)
+  let mobileNumbers = props.mobileNumbers.map(i => <a href='/cart' key={i.id}><p>{i.number}</p></a>)
 
   return (
     <div className={mobileClasess}>
@@ -53,7 +54,7 @@ let MobileMenu = (props) => {
         </button>
       </div>
       <div className={style.allMenu}>
-        <div>Главная</div>
+        <div> <NavLink to="/">Главная</NavLink> </div>
         <div onClick={props.openSubMenu} className={style.menuItem}>
           <div>
             Меню
@@ -76,7 +77,7 @@ let MobileMenu = (props) => {
           </div>
           <ul className={menuListClasess}>{liSubMenuItems}</ul>
         </div>
-        <div>Корзина</div>
+        <div><NavLink to="/cart">Корзина</NavLink></div>
         <div>Акции</div>
         <div onClick={props.openAdress} className={style.menuItem}>
           <div>

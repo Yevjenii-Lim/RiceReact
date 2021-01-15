@@ -1,11 +1,12 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import style from "./style-header.module.css";
 
 let Header = (props) => {
   // debugger
 
-  let liItems = props.svgList.map((i, index) =><a key={index} href={i.link}> <li >{i.code}</li></a>);
+  let liItems = props.svgList.map((i, index) =><NavLink key={index} to={i.link}> <li >{i.code}</li></NavLink>);
   return (
     <div className={style.header}>
       <div className={style.logo}>

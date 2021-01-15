@@ -30,7 +30,7 @@ let SwiperComponent = (props) => {
     //   onSlideChange={null}
       navigation
       pagination={{ clickable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSwiper={(swiper) => console.log(swiper)}
       className={s.swiper}
     >
         {SwiperItem}

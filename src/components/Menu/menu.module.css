@@ -1,0 +1,17 @@
+.itemImg {
+    width: 100%;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.item {
+    max-width: 45%;
+    width: 100%;
+}
+.rowTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
