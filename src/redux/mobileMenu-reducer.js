@@ -6,12 +6,12 @@ let initialState = {
     isMobileSubMenuOpen: false,
     isAdressOpen: false,
     subMenuItems: [
-        {name: 'Суши', id:1},
-        {name: 'Ролы', id:2},
-        {name: 'Супы', id:3},
-        {name: 'Лапша/Рис', id:4},
-        {name: 'Салаты', id:5},
-        {name: 'Маки', id:6}
+        {name: 'Суши', id:1 , link: '/sushi'},
+        {name: 'Ролы', id:2, link: '/rolls' },
+        {name: 'Супы', id:3, link: '/sup'},
+        {name: 'Лапша/Рис', id:4, link: '/rice'},
+        {name: 'Салаты', id:5, link: '/salats'},
+        {name: 'Маки', id:6, link: '/maki'}
     ],
     mobileNumbers: [
         {number:'+380 50 678 43 20',id: 1},

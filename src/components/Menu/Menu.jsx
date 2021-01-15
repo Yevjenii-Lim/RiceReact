@@ -6,12 +6,27 @@ import Sets from './Sets';
 
 
 let Menu = (props) => {
-   
+//    console.log(props)
+// debugger
     // rolls={props.menu.rolls}
+    // props.menu.rolls.length = 2
+    let rolls =  [...props.menu.rolls];
+    let sets = [...props.menu.sets];
+    sets.length = 2
+    rolls.length = 2
+    let copy = {
+        ...props,
+        menu: {...props.menu,
+        rolls: rolls,
+        sets: sets
+        }
+    }
+    // console.log(copy)
+    // console.log(props)
     return (
         <div>
-            <Rolls {...props}></Rolls>
-            <Sets {...props}></Sets>
+            <Rolls {...copy}></Rolls>
+            <Sets {...copy}></Sets>
         </div>
     )
 }

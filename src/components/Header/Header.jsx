@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import style from "./style-header.module.css";
 
+
 let Header = (props) => {
   // debugger
 
@@ -10,11 +11,15 @@ let Header = (props) => {
   return (
     <div className={style.header}>
       <div className={style.logo}>
+        <NavLink to="/">
         <img src={props.srcLogo} alt="Logo" />
+        </NavLink>
       </div>
-
       <ul className={style.navBarUl}>
         {liItems}
+        <div className={style.amount + " " + (props.cart.order.length > 0 ? null : style.hide)}>
+        {props.cart.order.length}
+        </div>
         <button className={style.btn} onClick={props.openMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

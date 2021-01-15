@@ -19,7 +19,7 @@ let MobileMenu = (props) => {
   let chevronClass = style.chevron + " " + rotateChevron;
 
   let liSubMenuItems = props.subMenuItems.map((i) => (
-    <li key={i.id}>{i.name}</li>
+    <li key={i.id}><NavLink to={i.link} >{i.name}</NavLink></li> 
   ));
 
   let showAdress = props.isAdressOpen ? style.subMenuOpen : style.subMenuClose;
