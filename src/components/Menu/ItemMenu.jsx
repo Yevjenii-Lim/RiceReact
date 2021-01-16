@@ -1,4 +1,5 @@
 import React from 'react';
+import PopUpContainer from '../PopUp/PopUp';
 import s from './menu.module.css'
 
 
@@ -7,11 +8,15 @@ let Item = (props) => {
     return <div className={s.item}>
         <div>
             <img className={s.itemImg} src={props.photo} alt=""/>
-            <p>{props.price}</p>
+            <p className={s.price}>{props.price} грн.</p>
         </div>
         <h5>{props.title}</h5>
-        <p>{props.desc}</p>
-        <button onClick={()=>props.addToCart(props)}>Добавить</button>
+        <p className={s.desc}>{props.desc}</p>
+        <span onClick={props.openPopUp}>more...</span>
+        <button className={s.addBtn} onClick={()=>props.addToCart(props)}>Добавить</button>
+        <PopUpContainer item={props}>
+            
+        </PopUpContainer>
     </div>
 }
 

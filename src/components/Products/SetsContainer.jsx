@@ -1,19 +1,20 @@
+
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { addToCart } from "../../redux/cart-reducer";
-// import { openSubMenu } from "../../redux/mobileMenu-reducer";
-import { openPopUp } from "../../redux/popup-reducer";
+import Sets from "../Menu/Sets";
 // import Item from "../Menu/ItemMenu";
-import Rolls from "../Menu/Rolls";
+// import Rolls from "../Menu/Rolls";
 import s from './products.module.css'
 
-let RollsSection = (props) => {
+
+let SetsSection = (props) => {
     // console.log(props)
     // console.log({...props})
   return (
     <div className={s.section}>
-      <Rolls {...props}></Rolls>
+      <Sets {...props}></Sets>
     </div>
   );
 };
@@ -25,8 +26,9 @@ let mapStateToProps = (state) => {
 };
 
 
-let WithUrlDataContainerComponent = withRouter(RollsSection)
+let WithUrlDataContainerComponent = withRouter(SetsSection)
 
-let RollsContainer = connect(mapStateToProps, { addToCart,openPopUp })(WithUrlDataContainerComponent);
 
-export default RollsContainer;
+let SetsContainer = connect(mapStateToProps, { addToCart })(WithUrlDataContainerComponent);
+
+export default SetsContainer;

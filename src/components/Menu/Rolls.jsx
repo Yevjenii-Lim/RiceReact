@@ -21,6 +21,7 @@ let Rolls = (props) => {
         key={i.id}
         price={i.price}
         addToCart={props.addToCart}
+        openPopUp={props.openPopUp}
         id={i.id}
       ></Item>
     );

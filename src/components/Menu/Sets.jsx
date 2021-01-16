@@ -1,10 +1,16 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Item from './ItemMenu';
 import s from "./menu.module.css";
 
 
 
 let Sets = (props) => {
+
+  let link = null
+  if(!props.match) {
+      link = <NavLink to="/sets">more</NavLink>
+  }
     let items = props.menu.sets.map((i) => {
         return (
           <Item
@@ -20,8 +26,9 @@ let Sets = (props) => {
       });
     return    <div>
     <div className={s.rowTitle}>
-      <p>sets</p>
-      <button>more</button>
+      <p>Сеты</p>
+      {link}
+      {/* <NavLink to="/sets">Ceты</NavLink> */}
     </div>
     <div className={s.row}>{items}</div>
   </div>

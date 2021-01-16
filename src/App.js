@@ -7,6 +7,7 @@ import Menu from './components/Menu/Menu';
 import LoaderContainer from './components/MenuAndLoader/Loader';
 import MobileMenuContainer from './components/MenuAndLoader/MobileMenu';
 import RollsContainer from './components/Products/RollsContainer';
+import SetsContainer from './components/Products/SetsContainer';
 import CartPage from './components/ShopingCart/Cart';
 import SwiperComponent from './components/Swiper';
 
@@ -22,6 +23,7 @@ function App() {
     <Route exact path="/"> <Menu></Menu> </Route>
     <Route exact path="/cart"><CartPage></CartPage></Route>
     <Route exact path='/rolls'> <RollsContainer></RollsContainer> </Route>
+    <Route exact path='/sets'> <SetsContainer></SetsContainer> </Route>
    
    </BrowserRouter>
    </>

@@ -12,9 +12,39 @@
 .item {
     max-width: 45%;
     width: 100%;
+    position: relative;
+    margin-bottom: 15px;
 }
 .rowTitle {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.price {
+    position: absolute;
+    margin: 0;
+    top: 0;
+    width: 65px;
+    height: 25px;
+    color: white;
+    text-align: center;
+    background-color: #138B00;
+    font-weight: bold;
+}
+
+.addBtn {
+    background-color: #FF5C00;
+    color: white;
+    width: 120px;
+    height: 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+h5 {
+    margin: 0;
+}
+.desc {
+    margin: 5px 0;
 }

@@ -19,7 +19,7 @@ let MobileMenu = (props) => {
   let chevronClass = style.chevron + " " + rotateChevron;
 
   let liSubMenuItems = props.subMenuItems.map((i) => (
-    <li key={i.id}><NavLink to={i.link} >{i.name}</NavLink></li> 
+    <li key={i.id}><NavLink to={i.link} onClick={props.openMenu}>{i.name}</NavLink></li> 
   ));
 
   let showAdress = props.isAdressOpen ? style.subMenuOpen : style.subMenuClose;
@@ -54,7 +54,7 @@ let MobileMenu = (props) => {
         </button>
       </div>
       <div className={style.allMenu}>
-        <div> <NavLink to="/">Главная</NavLink> </div>
+        <div onClick={props.openMenu}> <NavLink to="/">Главная</NavLink> </div>
         <div onClick={props.openSubMenu} className={style.menuItem}>
           <div>
             Меню
@@ -77,7 +77,7 @@ let MobileMenu = (props) => {
           </div>
           <ul className={menuListClasess}>{liSubMenuItems}</ul>
         </div>
-        <div><NavLink to="/cart">Корзина</NavLink></div>
+        <div onClick={props.openMenu}><NavLink to="/cart">Корзина</NavLink></div>
         <div>Акции</div>
         <div onClick={props.openAdress} className={style.menuItem}>
           <div>

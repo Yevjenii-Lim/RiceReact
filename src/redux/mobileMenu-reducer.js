@@ -6,7 +6,7 @@ let initialState = {
     isMobileSubMenuOpen: false,
     isAdressOpen: false,
     subMenuItems: [
-        {name: 'Суши', id:1 , link: '/sushi'},
+        {name: 'Сеты', id:1 , link: '/sets'},
         {name: 'Ролы', id:2, link: '/rolls' },
         {name: 'Супы', id:3, link: '/sup'},
         {name: 'Лапша/Рис', id:4, link: '/rice'},
