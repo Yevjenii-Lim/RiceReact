@@ -6,7 +6,8 @@ import ShopingCart from '../assets/svgIcons/ShopingCart'
 
 const OPEN_MENU = 'OPEN_MENU';
 const HIDE_LOADER = "HIDE_LOADER";
-
+const OFF_ANIMATION = 'OFF_ANIMATION'
+const ON_ANIMATION = "ON_ANIMATION"
 
 let initialState = {
     isMobileMenuOpen: false,
@@ -17,6 +18,7 @@ let initialState = {
         {code: <PhoneCall></PhoneCall>, link: '+380 50 678 43 20'},
         {code: <ShopingCart></ShopingCart>, link: '/cart'}
     ],
+    animation: false,
 }
 
 
@@ -36,6 +38,19 @@ let headerReducer = (state = initialState, action) => {
             isShowLoader: false
         }
     }
+    case OFF_ANIMATION: {
+        console.log('asas')
+        return {
+            ...state,
+            animation: true
+        }
+    }
+    case ON_ANIMATION: {
+        return {
+            ...state, 
+            animation: false
+        }
+    }
         
     default: return state
     
@@ -47,5 +62,7 @@ let headerReducer = (state = initialState, action) => {
 
 export let openMenu = () => ({type: OPEN_MENU})
 export let hideLoader = () => ({type: HIDE_LOADER})
+export let offAnimation = () => ({type: OFF_ANIMATION})
+export let onAnimation = () => ({type: ON_ANIMATION})
 
 export default headerReducer

@@ -1,15 +1,34 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import { bounce } from 'react-animations';
 import style from "./style-header.module.css";
+// import styled, { keyframes } from 'styled-components';
+// import './style.css';
 
+// const Bounce = style.amount`animation: 2s ${style.keyframes`${bounce}`} infinite`;
 
 let Header = (props) => {
   // debugger
 
   let liItems = props.svgList.map((i, index) =><NavLink key={index} to={i.link}> <li >{i.code}</li></NavLink>);
+
+  let animation = style.upDown
+// console.log('asdas')
+  // setTimeout(()=> animation = null, 10)
+  // setTimeout(() => animation = style.upDown, 100)
+  // props.onAnimation()
+  let allClasses = style.amount + " " + (props.cart.order.length > 0 ? null : style.hide);
+  // setTimeout(() => props.offAnimation(), 10) 
+// console.log(allClasses)
+// function chengeClasses() {
+//   // allClasses = style.amount + " " + (props.cart.order.length > 0 ? null : style.hide);
+//   // console.log(allClasses)
+// }
+//   setTimeout(chengeClasses, 10)
+// console.log(animation)
+// allClasses = style.amount + " " + (props.cart.order.length > 0 ? null : style.hide)
   return (
-    <div className={style.header}>
+    <div onClick={props.offAnimation} className={style.header}>
       <div className={style.logo}>
         <NavLink to="/">
         <img src={props.srcLogo} alt="Logo" />
@@ -17,9 +36,12 @@ let Header = (props) => {
       </div>
       <ul className={style.navBarUl}>
         {liItems}
-        <div className={style.amount + " " + (props.cart.order.length > 0 ? null : style.hide)}>
+        {/* <Bounce> */}
+
+        <div className={allClasses}>
         {props.cart.order.length}
         </div>
+        {/* </Bounce> */}
         <button className={style.btn} onClick={props.openMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
