@@ -59,8 +59,9 @@
     justify-content: center;
     color: white;
     font-size: bold;
+
     /* transition: top 0.2s linear; */
-    animation: upDown 2s 1;
+    /* animation: upDown 2s 1; */
     /* animation-iteration-count: 1 */
 }
 .upDown {

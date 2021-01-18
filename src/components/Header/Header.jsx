@@ -2,10 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { bounce } from 'react-animations';
 import style from "./style-header.module.css";
-// import styled, { keyframes } from 'styled-components';
+// import styled from "styled-components";
+
+import styled, { keyframes } from 'styled-components';
 // import './style.css';
 
-// const Bounce = style.amount`animation: 2s ${style.keyframes`${bounce}`} infinite`;
+const Bounce = styled.div`animation: 2s ${keyframes`${bounce}`} infinity`;
 
 let Header = (props) => {
   // debugger
@@ -36,12 +38,12 @@ let Header = (props) => {
       </div>
       <ul className={style.navBarUl}>
         {liItems}
-        {/* <Bounce> */}
+        <Bounce>
 
         <div className={allClasses}>
         {props.cart.order.length}
         </div>
-        {/* </Bounce> */}
+        </Bounce>
         <button className={style.btn} onClick={props.openMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
