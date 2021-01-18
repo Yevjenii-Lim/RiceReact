@@ -19,12 +19,13 @@ let cartReducer = (state = initialState, action) => {
                  return true
                 }
             })
+           
             if(!index) {
                 orderN.amount = orderN.amount + state.order[index].amount
                 state.order.splice(index, 1 ,orderN)
                 return {
                     ...state,
-                    order: [...state.order, orderN]
+                    order: [...state.order]
                 }
             }else {
                 return {
@@ -32,13 +33,20 @@ let cartReducer = (state = initialState, action) => {
                     order: [...state.order, action.order]
                 }
             }
-            console.log(state.order[index])
            
         }
         case DELETE_FORM_CART: {
-        let index = state.order.findIndex(i => i.id === action.id)
-            // console.log(action.order.id)
-            state.order.splice(index, 1)
+        let index = state.order.findIndex(i => i.id === action.order)
+        // console.log(action.order)
+            if(state.order[index].amount > 1) {
+                let newOrder = {...state.order[index]}
+                // console.log(newOrder)
+                newOrder.amount -= 1
+                state.order.splice(index, 1, newOrder)
+            }else {
+                state.order.splice(index, 1)
+
+            }
             return {
                 ...state,
                 order: [...state.order]
