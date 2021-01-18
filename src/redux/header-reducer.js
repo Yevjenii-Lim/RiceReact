@@ -39,7 +39,7 @@ let headerReducer = (state = initialState, action) => {
         }
     }
     case OFF_ANIMATION: {
-        console.log('asas')
+        // console.log('asas')
         return {
             ...state,
             animation: true

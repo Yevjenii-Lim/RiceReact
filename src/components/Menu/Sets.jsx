@@ -19,7 +19,7 @@ let Sets = (props) => {
             desc={i.desc}
             key={i.id}
             price={i.price}
-            addToCart={props.addToCart}
+            addToCart={props.addToCartThunkCreator}
             id={i.id}
           ></Item>
         );

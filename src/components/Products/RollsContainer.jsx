@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { addToCart } from "../../redux/cart-reducer";
+import { addToCartThunkCreator } from "../../redux/cart-reducer";
 // import { openSubMenu } from "../../redux/mobileMenu-reducer";
 import { openPopUp } from "../../redux/popup-reducer";
 // import Item from "../Menu/ItemMenu";
@@ -27,6 +27,8 @@ let mapStateToProps = (state) => {
 
 let WithUrlDataContainerComponent = withRouter(RollsSection)
 
-let RollsContainer = connect(mapStateToProps, { addToCart,openPopUp })(WithUrlDataContainerComponent);
+
+
+let RollsContainer = connect(mapStateToProps, { addToCartThunkCreator,openPopUp })(WithUrlDataContainerComponent);
 
 export default RollsContainer;

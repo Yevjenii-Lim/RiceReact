@@ -1,20 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { bounce } from 'react-animations';
+// import { bounce } from 'react-animations';
 import style from "./style-header.module.css";
 // import styled from "styled-components";
 
-import styled, { keyframes } from 'styled-components';
+// import styled, { keyframes } from 'styled-components';
 // import './style.css';
 
-const Bounce = styled.div`animation: 2s ${keyframes`${bounce}`} infinity`;
+// const Bounce = styled.div`animation: 2s ${keyframes`${bounce}`} infinity`;
 
 let Header = (props) => {
   // debugger
 
   let liItems = props.svgList.map((i, index) =><NavLink key={index} to={i.link}> <li >{i.code}</li></NavLink>);
 
-  let animation = style.upDown
+  // let animation = style.upDown
 // console.log('asdas')
   // setTimeout(()=> animation = null, 10)
   // setTimeout(() => animation = style.upDown, 100)
@@ -38,12 +38,12 @@ let Header = (props) => {
       </div>
       <ul className={style.navBarUl}>
         {liItems}
-        <Bounce>
+        {/* <Bounce> */}
 
         <div className={allClasses}>
-        {props.cart.order.length}
+        {props.cart.order.reduce((a,i) => a + i.amount , 0)}
         </div>
-        </Bounce>
+        {/* </Bounce> */}
         <button className={style.btn} onClick={props.openMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

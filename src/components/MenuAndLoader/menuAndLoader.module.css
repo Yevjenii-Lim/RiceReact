@@ -1,6 +1,7 @@
 .loader {
     position: fixed;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     height: 100%;
     top: 0;
     background-color: red;
@@ -12,7 +13,8 @@
 }
 .mobileMenu {
     position: fixed;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     height: 100%;
     background-color: white;
     transition: 0.3s;

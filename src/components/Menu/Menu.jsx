@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addToCart } from '../../redux/cart-reducer';
+import { addToCartThunkCreator } from '../../redux/cart-reducer';
 import { openPopUp } from '../../redux/popup-reducer';
 // import PopUp from '../PopUp/PopUp';
 import Rolls from './Rolls';
@@ -8,7 +8,7 @@ import Sets from './Sets';
 
 
 let Menu = (props) => {
-//    console.log(props)
+   console.log(props)
 // debugger
     // rolls={props.menu.rolls}
     // props.menu.rolls.length = 2
@@ -38,12 +38,14 @@ let Menu = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        menu: state.menu
+        menu: state.menu,
+        // popUp: state.popUp,
     }
 }
 
 
-let MenuContainer = connect(mapStateToProps,{addToCart,openPopUp})(Menu)
+
+let MenuContainer = connect(mapStateToProps,{addToCartThunkCreator,openPopUp})(Menu)
 
 
 

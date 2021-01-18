@@ -1,5 +1,9 @@
 .itemImg {
     width: 100%;
+    height: 100%;
+}
+.image {
+    height: 150px;
 }
 .row {
     display: flex;
@@ -41,6 +45,9 @@
     border: none;
     outline: none;
     cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
 }
 h5 {
     margin: 0;

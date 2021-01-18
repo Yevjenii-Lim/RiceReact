@@ -20,9 +20,11 @@ let Rolls = (props) => {
         desc={i.desc}
         key={i.id}
         price={i.price}
-        addToCart={props.addToCart}
+        addToCart={props.addToCartThunkCreator}
         openPopUp={props.openPopUp}
         id={i.id}
+        amount={i.amount}
+        // popUp={props.popUp.isOpen}
       ></Item>
     );
   });

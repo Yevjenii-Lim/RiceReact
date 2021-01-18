@@ -5,18 +5,20 @@ import s from './menu.module.css'
 
 let Item = (props) => {
 //  console.log(props)
+// debugger
+//  let popUp = props.popUp ? <PopUpContainer></PopUpContainer> : null;
     return <div className={s.item}>
-        <div>
+        <div className={s.image}>
             <img className={s.itemImg} src={props.photo} alt=""/>
             <p className={s.price}>{props.price} грн.</p>
         </div>
         <h5>{props.title}</h5>
-        <p className={s.desc}>{props.desc}</p>
-        <span onClick={props.openPopUp}>more...</span>
+        <span className={s.desc}>{props.desc}</span>
+        <span >more...</span>
+        {/* {popUp} */}
+        <button onClick={props.openPopUp}>open popup</button>
         <button className={s.addBtn} onClick={()=>props.addToCart(props)}>Добавить</button>
-        <PopUpContainer item={props}>
-            
-        </PopUpContainer>
+     
     </div>
 }
 

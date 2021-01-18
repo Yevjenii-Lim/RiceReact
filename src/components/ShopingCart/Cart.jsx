@@ -8,10 +8,12 @@ let CartPage = (props) => {
 // console.log(props.cart.order)
 // debugger
 let shopItems = props.cart.order.map((i,index) => {
+    // debugger
     return (
         <div key={index}>
             <span>{i.title}</span>
             <span>{i.price}</span>
+            <span>{i.amount}</span>
             <button onClick={()=> props.removeFromCart(i.id)}>Удалить</button>
         </div>
     )
@@ -23,6 +25,7 @@ useEffect(() => {
 })
 let sum = props.cart.order.reduce((a,i) => a + i.price, 0)
     return <div className={s.cart}>
+        <p>Ваш заказ:</p>
         {shopItems}
         <p>Ваш заказ на сумму: {sum} грн.</p>
     </div>
