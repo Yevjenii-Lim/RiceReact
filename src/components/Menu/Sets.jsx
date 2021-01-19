@@ -21,6 +21,7 @@ let Sets = (props) => {
             price={i.price}
             addToCart={props.addToCartThunkCreator}
             id={i.id}
+            amount={i.amount}
           ></Item>
         );
       });

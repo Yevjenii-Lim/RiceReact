@@ -38,5 +38,7 @@ let mapStateToProps = (state) => {
   };
 };
 
+
+
 let CartPopContainer = connect(mapStateToProps, { cartPopUpAC })(CartPop);
 export default CartPopContainer;

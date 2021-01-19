@@ -8,7 +8,7 @@ import Sets from './Sets';
 
 
 let Menu = (props) => {
-   console.log(props)
+//    console.log(props)
 // debugger
     // rolls={props.menu.rolls}
     // props.menu.rolls.length = 2
