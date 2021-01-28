@@ -1,4 +1,4 @@
-import { act } from "react-dom/test-utils"
+
 import { cartPopUpAC } from "./popup-reducer"
 
 const ADD_TO_CART = "ADD_TO_CART"
@@ -21,6 +21,8 @@ let cartReducer = (state = initialState, action) => {
            let index =  state.order.findIndex((i, index ) => {
                 if(i.id === orderN.id) {
                  return true
+                }else {
+                    return false
                 }
             })
            

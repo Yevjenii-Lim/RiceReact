@@ -4,10 +4,15 @@
     max-width: 500px;
     height: 100%;
     top: 0;
-    background-color: red;
+    background-color: white;
     z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
+.loader img {
+    width: 100px;
+}
 .hideLoader {
     display: none;
 }
@@ -70,6 +75,7 @@
     transition: 0.5s;
     margin-top: 0;
     margin-bottom: 10px;
+    overflow: hidden;
     /* display: none; */
 }
 .menuList li {
@@ -78,11 +84,8 @@
 .menuItem div {
     display: flex;
     align-items: center;
-   
 }
-.menuItem {
-   
-}
+
 .menuItem p span {
     margin-top: 5px;
     margin-left: 10px;
@@ -91,12 +94,18 @@
     margin: 0;
     height: 20px;
     margin-top: -5px;
+   margin-left: 10px;
+}
+.itemTitle {
+    font-weight: bold;
 }
 .subMenuOpen {
-    display: block;
+    /* display: block; */
+    height: 190px;
 }
 .subMenuClose {
-    display: none;
+    /* display: none; */
+    height: 0;
 }
 .chevron {
     transition: 0.5s;
@@ -121,6 +130,3 @@
     font-weight: bold;
 }
 
-.inst {
-
-}

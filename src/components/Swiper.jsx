@@ -18,7 +18,7 @@ let SwiperComponent = (props) => {
  return <SwiperSlide key={i.id}><img className={s.swiperPhoto} src={i.photo} alt="slider"/>
  <div>
      <h1>Attenition</h1>
-     <p>Hello wrlt</p>
+     <p>Hello </p>
  </div>
  </SwiperSlide> 
 

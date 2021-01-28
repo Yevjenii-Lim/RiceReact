@@ -10,7 +10,7 @@ let Rolls = (props) => {
     // console.log(props)
     let link = null
     if(!props.match) {
-        link = <NavLink to="/rolls">more</NavLink>
+        link = <NavLink className={s.more} to="/rolls">Ещё</NavLink>
     }
   let items = props.menu.rolls.map((i) => {
     return (

@@ -21,15 +21,60 @@ let CartPage = (props) => {
         <div className={s.title}>
           {i.title}
           <p>{i.price} грн.</p>
-          <div>
-            <button onClick={() => props.removeAmount(i.id)}>remove</button>
+          <div className={s.btns}>
+            <button className={s.sBtn} onClick={() => props.removeAmount(i.id)}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="yellow"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="feather feather-minus"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
             <span>{i.amount}</span>
-            <button onClick={() => props.addAmount(i.id)}>add</button>
+            <button className={s.sBtn} onClick={() => props.addAmount(i.id)}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ADFF2F"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="feather feather-plus"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
           </div>
         </div>
 
-        <button className={s.xBtn} onClick={() => props.removeFromCart(i.id)}>
-          Удалить
+        <button className={s.xBtn + " " + s.sBtn} onClick={() => props.removeFromCart(i.id)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-x"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
         </button>
       </div>
     );

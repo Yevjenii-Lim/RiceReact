@@ -1,10 +1,11 @@
 import React from 'react';
-import PopUpContainer from '../PopUp/PopUp';
+import { NavLink, withRouter } from 'react-router-dom';
+// import PopUpContainer from '../PopUp/PopUp';
 import s from './menu.module.css'
 
 
 let Item = (props) => {
-//  console.log(props)
+//  console.log(props.match.params.productId)
 // debugger
 //  let popUp = props.popUp ? <PopUpContainer></PopUpContainer> : null;
     return <div className={s.item}>
@@ -16,11 +17,14 @@ let Item = (props) => {
         <span className={s.desc}>{props.desc}</span>
         <span >more...</span>
         {/* {popUp} */}
-        <button onClick={props.openPopUp}>open popup</button>
+        <NavLink to={'/item' + "/" + props.id} >open more</NavLink>
+        {/* <button onClick={props.openPopUp}>open popup</button> */}
         <button className={s.addBtn} onClick={()=>props.addToCart(props)}>Добавить</button>
-     
     </div>
 }
 
 
-export default Item
+let withRouterData = withRouter(Item)
+
+
+export default withRouterData

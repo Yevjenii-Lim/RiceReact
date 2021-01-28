@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import style from './menuAndLoader.module.css'
+import logo from '../../assets/images/loader-logo.png'
 
 let Loader = (props) => {
 
@@ -9,7 +10,9 @@ let Loader = (props) => {
 
 
     return (
-        <div className={loaderClasses}>Loader</div>
+        <div className={loaderClasses}>
+            <img src={logo} alt="logo"/>
+        </div>
     )
 }
 
@@ -24,3 +27,4 @@ let LoaderContainer = connect(mapStateToProps)(Loader)
 
 
 export default LoaderContainer
+// /assets/images

@@ -9,7 +9,7 @@ let Sets = (props) => {
 
   let link = null
   if(!props.match) {
-      link = <NavLink to="/sets">more</NavLink>
+      link = <NavLink className={s.more}  to="/sets">Ещё</NavLink>
   }
     let items = props.menu.sets.map((i) => {
         return (

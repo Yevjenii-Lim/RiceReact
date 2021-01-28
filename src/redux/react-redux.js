@@ -2,6 +2,7 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunkMiddleWare from "redux-thunk";
 import cartReducer from "./cart-reducer";
 import headerReducer from "./header-reducer";
+import itemReducer from "./item-reducer";
 import menuReducer from "./menu-reducer";
 import mobileMenuReducer from "./mobileMenu-reducer";
 import popUpReducer from "./popup-reducer";
@@ -14,7 +15,9 @@ let reducers = combineReducers({
     swiper: swiperReducer,
     menu: menuReducer,
     cart: cartReducer,
-    popUp: popUpReducer
+    popUp: popUpReducer,
+    item: itemReducer
+    
 }
 );
 

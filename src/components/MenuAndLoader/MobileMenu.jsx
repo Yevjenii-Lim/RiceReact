@@ -54,10 +54,10 @@ let MobileMenu = (props) => {
         </button>
       </div>
       <div className={style.allMenu}>
-        <div onClick={props.openMenu}> <NavLink to="/">Главная</NavLink> </div>
+        <div onClick={props.openMenu}> <NavLink className={style.itemTitle} to="/">Главная</NavLink> </div>
         <div onClick={props.openSubMenu} className={style.menuItem}>
           <div>
-            Меню
+            <span className={style.itemTitle}>Меню</span> 
             <p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,11 +77,13 @@ let MobileMenu = (props) => {
           </div>
           <ul className={menuListClasess}>{liSubMenuItems}</ul>
         </div>
-        <div onClick={props.openMenu}><NavLink to="/cart">Корзина</NavLink></div>
-        <div>Акции</div>
+        <div onClick={props.openMenu}><NavLink className={style.itemTitle} to="/cart">Корзина</NavLink></div>
+        <div className={style.menuItem}>
+          <span className={style.itemTitle}>Акции</span>  </div>
         <div onClick={props.openAdress} className={style.menuItem}>
-          <div>
-            Наши рестораны
+          <div className={style.menuItem}>
+            <span className={style.itemTitle}> Наши рестораны</span>
+           
             <p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

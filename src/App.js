@@ -7,12 +7,12 @@ import Menu from './components/Menu/Menu';
 import LoaderContainer from './components/MenuAndLoader/Loader';
 import MobileMenuContainer from './components/MenuAndLoader/MobileMenu';
 import CartPop from './components/PopUp/CartPopUp';
-import PopUpContainer from './components/PopUp/PopUp';
+import ItemCart from './components/Products/itemCart';
+// import PopUpContainer from './components/PopUp/PopUp';
 import RollsContainer from './components/Products/RollsContainer';
 import SetsContainer from './components/Products/SetsContainer';
 import CartPage from './components/ShopingCart/Cart';
 import SwiperComponent from './components/Swiper';
-
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
     <Route exact path="/cart"><CartPage></CartPage></Route>
     <Route exact path='/rolls'> <RollsContainer></RollsContainer> </Route>
     <Route exact path='/sets'> <SetsContainer></SetsContainer> </Route>
+    <Route path='/item/:productId?'> <ItemCart></ItemCart> </Route>
    <CartPop></CartPop>
    {/* <PopUpContainer></PopUpContainer> */}
    </BrowserRouter>

@@ -7,7 +7,7 @@ class HeaderClass extends React.Component {
 
     componentDidMount() {
        
-        setTimeout( () => this.props.hideLoader(), 650)
+        setTimeout( () => this.props.hideLoader(), 800)
     }
     componentDidUpdate () {
         // setTimeout(() => this.props.offAnimation(), 100)

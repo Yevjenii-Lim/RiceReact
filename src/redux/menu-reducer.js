@@ -1,7 +1,11 @@
 import kali from "../assets/images/kali.png";
 import dakota from "../assets/images/dakota.jpg";
 import setRice from "../assets/images/rice-max.jpeg";
+// import { act } from "react-dom/test-utils";
+// import { getItem } from "./item-reducer";
 const OPEN_POP = "OPEN_POP"
+const GET_PRODUCT = "GET_PRODUCT"
+
 
 let initialState = {
   rolls: [
@@ -50,7 +54,7 @@ let initialState = {
     {
       title: "Сет «Rice max»",
       price: 280,
-      id: 4,
+      id: 5,
       photo: setRice,
       desc:
         "Акционная цена! Ролл Кокаин, Якудза, Оранж, сушими из лосося и тунца, Тигровый дракон, Икура и Дьябло",
@@ -60,7 +64,7 @@ let initialState = {
     {
       title: "Сет «ВЕГАН»",
       price: 699,
-      id: 3,
+      id: 6,
       photo: setRice,
       desc:
         "кционная цена! маки с огурцом, маки с авокадо, Ясай-маки (болгарский перец, помидор, авокадо, огурец, такуан, салатный лист), vegan-Калифорния в кунжуте (авокадо, огурец, болгарский перец, такуан), гункан с чукой, 4 шт",
@@ -70,7 +74,7 @@ let initialState = {
     {
       title: "Сет «ВЕГАН»",
       price: 699,
-      id: 5,
+      id: 7,
       photo: setRice,
       desc:
         "кционная цена! маки с огурцом, маки с авокадо, Ясай-маки (болгарский перец, помидор, авокадо, огурец, такуан, салатный лист), vegan-Калифорния в кунжуте (авокадо, огурец, болгарский перец, такуан), гункан с чукой, 4 шт",
@@ -83,7 +87,20 @@ let initialState = {
 let menuReducer = (state = initialState, action) => {
   switch (action.type) {
     case OPEN_POP: {
-      return {}
+      return state
+    }
+    case GET_PRODUCT: {
+      let product = state.rolls.find(i => i.id == action.id)
+      // console.log(product)
+      // console.log(action.id)
+      if(product === undefined) {
+        product = state.sets.find(i => i.id == action.id)
+      }
+
+      return {
+        ...state,
+        product
+      }
     }
     default: return state
   }
@@ -91,6 +108,7 @@ let menuReducer = (state = initialState, action) => {
 };
 
 
+export const getProduct = (id) => ({type: GET_PRODUCT, id})
 export const setModal = (id) => ({type: OPEN_POP, id})
 
 export default menuReducer;
