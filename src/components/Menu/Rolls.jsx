@@ -29,7 +29,7 @@ let Rolls = (props) => {
     );
   });
   return (
-    <div>
+    <div className={s.productsRow} id="section1">
       <div className={s.rowTitle}>
         <p>Роллы</p>
        {link}      

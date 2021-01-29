@@ -14,21 +14,9 @@ let Header = (props) => {
 
   let liItems = props.svgList.map((i, index) =><NavLink key={index} to={i.link}> <li >{i.code}</li></NavLink>);
 
-  // let animation = style.upDown
-// console.log('asdas')
-  // setTimeout(()=> animation = null, 10)
-  // setTimeout(() => animation = style.upDown, 100)
-  // props.onAnimation()
+
   let allClasses = style.amount + " " + (props.cart.order.length > 0 ? null : style.hide);
-  // setTimeout(() => props.offAnimation(), 10) 
-// console.log(allClasses)
-// function chengeClasses() {
-//   // allClasses = style.amount + " " + (props.cart.order.length > 0 ? null : style.hide);
-//   // console.log(allClasses)
-// }
-//   setTimeout(chengeClasses, 10)
-// console.log(animation)
-// allClasses = style.amount + " " + (props.cart.order.length > 0 ? null : style.hide)
+
   return (
     <div onClick={props.offAnimation} className={style.header}>
       <div className={style.logo}>
@@ -38,12 +26,12 @@ let Header = (props) => {
       </div>
       <ul className={style.navBarUl}>
         {liItems}
-        {/* <Bounce> */}
+    
 
         <div className={allClasses}>
         {props.cart.order.reduce((a,i) => a + i.amount , 0)}
         </div>
-        {/* </Bounce> */}
+    
         <button className={style.btn} onClick={props.openMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

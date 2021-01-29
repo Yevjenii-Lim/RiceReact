@@ -1,11 +1,31 @@
 .swiper {
     top: 70px;
     padding-bottom: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
     border-bottom:1px solid black ;
+    padding: 0 1em;
 }
 
 .swiperPhoto {
     width: 100%;
+}
+.btn {
+    box-sizing: border-box;
+    color: white;
+    font-size: 1.4em;
+    display: block;
+    margin-right: 5px;
+    padding: 1px 10px;
+    background-color: #A4224A;
+    -webkit-box-shadow: 3px 3px 0px 1px rgba(0,0,0,0.25);
+    -moz-box-shadow: 3px 3px 0px 1px rgba(0,0,0,0.25);
+    box-shadow: 3px 3px 0px 1px rgba(0,0,0,0.25);
+    outline: none;
+    border: none;
+    z-index: 1000;
+    width: 70%;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
 }
 

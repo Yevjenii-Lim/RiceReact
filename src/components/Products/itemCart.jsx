@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { addToCart } from '../../redux/cart-reducer'
+import { addToCartThunkCreator } from '../../redux/cart-reducer'
 import { getProduct } from '../../redux/menu-reducer'
 import s from './products.module.css'
 
@@ -27,7 +27,7 @@ class ItemCart extends React.Component {
                 <p>
                     {this.props.product.desc}
                 </p>
-                <button onClick={() => this.props.addToCart(this.props.product)}>Добавить в корзину</button>
+                <button onClick={() => this.props.addToCartThunkCreator(this.props.product)}>Добавить в корзину</button>
             </div>
         }else {
             return <div className={s.itemCart}>
@@ -44,9 +44,10 @@ let mapStateToProps = (state) => {
     }
 }
 
+
 let mapDispatchToProps =  {
     getProduct,
-    addToCart
+    addToCartThunkCreator
 }
 
 

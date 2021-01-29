@@ -25,7 +25,7 @@ let Sets = (props) => {
           ></Item>
         );
       });
-    return    <div>
+    return <div className={s.productsRow}>
     <div className={s.rowTitle}>
       <p>Сеты</p>
       {link}

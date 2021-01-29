@@ -1,16 +1,28 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+// import { sendOrder } from "../../DAL/api";
 import {
   addAmount,
+  addExtraImbir,
+  addExtraSoy,
+  addExtraVas,
+  addRegularSticks,
+  addStudySticks,
+  changeAdres,
+  changeName,
+  changeNumber,
   removeAmount,
   removeFromCart,
+  sendOrederThunkCreator,
+  // sendOrder,
 } from "../../redux/cart-reducer";
 import { openMenu } from "../../redux/header-reducer";
 import s from "./cart.module.css";
 
 let CartPage = (props) => {
-  // console.log(props.cart.order)
+  // console.log(props.cart)
   // debugger
+  // console.log(localStorage)
   let shopItems = props.cart.order.map((i, index) => {
     // console.log(i)
     return (
@@ -29,7 +41,7 @@ let CartPage = (props) => {
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="yellow"
+                stroke="white"
                 strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -46,7 +58,7 @@ let CartPage = (props) => {
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#ADFF2F"
+                stroke="white"
                 strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -59,7 +71,10 @@ let CartPage = (props) => {
           </div>
         </div>
 
-        <button className={s.xBtn + " " + s.sBtn} onClick={() => props.removeFromCart(i.id)}>
+        <button
+          className={s.xBtn + " " + s.sBtn}
+          onClick={() => props.removeFromCart(i.id)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -85,11 +100,82 @@ let CartPage = (props) => {
     // console.log('acara')
   });
   let sum = props.cart.order.reduce((a, i) => a + i.price * i.amount, 0);
+  sum += (+props.cart.extraVas + +props.cart.extraSoy + +props.cart.extraImbir) * 15
   return (
     <div className={s.cart}>
       <p>Ваша корзина:</p>
       {shopItems}
-      <p>Ваш заказ на сумму: {sum} грн.</p>
+     
+      <div className={s.sticks}>
+        <h5>Детали заказа:</h5>
+        <p>Палочки обычные: {props.cart.regularSticks} шт.</p>
+        <input
+          type="range"
+          onChange={(e) => props.addRegularSticks(e.target.value)}
+          min="0"
+          max="10"
+          value={props.cart.regularSticks}
+        ></input>
+        <p>Палочки учебные: {props.cart.studySticks} шт.</p>
+        <input
+          type="range"
+          onChange={(e) => props.addStudySticks(e.target.value)}
+          min="0"
+          max="10"
+          value={props.cart.studySticks}
+        ></input>
+        <p className={s.extraTitle}>Дополнительно - 15грн порция:</p>
+
+        <div className={s.extra}>
+          <div>
+            <p>Васаби: {props.cart.extraVas} порц.</p>
+            <input
+              type="range"
+              onChange={(e) => props.addExtraVas(e.target.value)}
+              min="0"
+              max="10"
+              value={props.cart.extraVas}
+            ></input>
+          </div>
+          <div>
+            <p>Соевый: {props.cart.extraSoy} порц.</p>
+            <input
+              type="range"
+              onChange={(e) => props.addExtraSoy(e.target.value)}
+              min="0"
+              max="10"
+              value={props.cart.extraSoy}
+            ></input>
+          </div>
+          <div>
+            <p>Имбирь: {props.cart.extraImbir} порц.</p>
+            <input
+              type="range"
+              onChange={(e) => props.addExtraImbir(e.target.value)}
+              min="0"
+              max="10"
+              value={props.cart.extraImbir}
+            ></input>
+          </div>
+        </div>
+        <div className={s.delivery}>
+            <h5 className={s.extraTitle}>Данные для доставки:</h5>
+            <input type="text" name="" id="name" onChange={(e) => props.changeName(e.target.value)} value={props.cart.name} placeholder="Ваше имя"/>
+            <input type="text" name="" id="number" onChange={(e) => props.changeNumber(e.target.value)} value={props.cart.number} placeholder="Ваш номер телефона"/>
+            <input type="text" name="" id="adres" onChange={(e) => props.changeAdres(e.target.value)} value={props.cart.adres} placeholder="Адрес"/>
+        </div>
+      </div>
+      <div className={s.total}>
+        <div>
+          <p>Итого:</p>
+          <p className={s.sum}>{sum} грн</p>
+        </div>
+        <div>
+          <button onClick={() => props.sendOrederThunkCreator(props.cart,sum)}>
+            Заказать
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
@@ -101,11 +187,25 @@ let mapStateToProps = (state) => {
   };
 };
 
+
+
+
+
+
 let ContainerCart = connect(mapStateToProps, {
   removeAmount,
   openMenu,
   addAmount,
   removeFromCart,
+  addRegularSticks,
+  addStudySticks,
+  addExtraVas,
+  addExtraSoy,
+  addExtraImbir,
+  changeName,
+  changeNumber,
+  changeAdres,
+  sendOrederThunkCreator
 })(CartPage);
 
 export default ContainerCart;

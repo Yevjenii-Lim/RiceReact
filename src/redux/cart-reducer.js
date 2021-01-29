@@ -1,16 +1,33 @@
 
+import { sendOrderApi } from "../DAL/api";
 import { cartPopUpAC } from "./popup-reducer"
 
 const ADD_TO_CART = "ADD_TO_CART"
 const DELETE_FORM_AMOUNT = "DELETE_FORM_AMOUNT";
 const ADD_AMOUNT = "ADD_AMOUNT";
 const REMOVE_FROM_CART = "REMOVE_FROM_CART"
-
+const ADD_REGULAR_STICKS = "ADD_REGULAR_STICKS"
+const ADD_STUDY_STICKS = "ADD_STUDY_STICKS"
+const ADD_EXTRA_VAS = "ADD_EXTRA_VAS"
+const ADD_EXTRA_SOY = "ADD_EXTRA_SOY"
+const ADD_EXTRA_IMB = "ADD_EXTRA_IMB"
+const CHANGE_NAME = "CHANGE_NAME"
+const CHANGE_NUMBER = "CHANGE_NUMBER"
+const CHANGE_ADRES = "CHANGE_ADRES"
+const SEND_ORDER = "SEND_ORDER"
 
 let initialState = {
     order: [
         // {title: "Калифорния в кунжуте с крабом", price: 92, id: 1, amount : 1}
-    ]
+    ],
+    regularSticks: 2,
+    studySticks: 0,
+    extraVas: 0,
+    extraSoy: 0,
+    extraImbir: 0,
+    name: '',
+    number: '',
+    adres: '',
 }
 
 let cartReducer = (state = initialState, action) => {
@@ -76,6 +93,64 @@ let cartReducer = (state = initialState, action) => {
                 order: [...state.order]
             }
         }
+        case ADD_REGULAR_STICKS: {
+            // console.log(action.num)
+            return {
+                ...state,
+                regularSticks: action.num
+            }
+        }
+        case ADD_STUDY_STICKS: {
+            // console.log(action.num)
+            return {
+                ...state,
+                studySticks: action.num
+            }
+        }
+        case ADD_EXTRA_VAS: {
+            return {
+                ...state,
+                extraVas: action.num
+            }
+        }
+        case ADD_EXTRA_SOY: {
+            return {
+                ...state,
+                extraSoy: action.num
+            }
+        }
+        case ADD_EXTRA_IMB: {
+            return {
+                ...state,
+                extraImbir: action.num
+            }
+        }
+        case CHANGE_NAME: {
+            return {
+                ...state,
+                name: action.name
+            }
+        }
+        case CHANGE_NUMBER: {
+            return {
+                ...state,
+                number: action.number
+            }
+        }
+        case CHANGE_ADRES: {
+            return {
+                ...state,
+                adres: action.adres
+            }
+        }
+        case SEND_ORDER: {
+            // console.log(state)
+            // let str = JSON.stringify(state)
+            // console.log(str)
+            return {
+                ...state
+            }
+        }
         default: return state
     }
 
@@ -86,12 +161,28 @@ export let addToCart = (order) => ({type: ADD_TO_CART, order})
 export let removeAmount = (order) => ({type: DELETE_FORM_AMOUNT, order})
 export let addAmount = (id) => ({type: ADD_AMOUNT, id})
 export let removeFromCart = (id) => ({type:REMOVE_FROM_CART, id})
+export let addRegularSticks = (num) => ({type: ADD_REGULAR_STICKS, num})
+export let addStudySticks = (num) => ({type: ADD_STUDY_STICKS, num})
+export let addExtraVas = (num) => ({type: ADD_EXTRA_VAS, num})
+export let addExtraSoy = (num) => ({type: ADD_EXTRA_SOY, num})
+export let addExtraImbir = (num) => ({type: ADD_EXTRA_IMB, num})
+export let changeName = (name) => ({type: CHANGE_NAME, name})
+export let changeNumber = (number) => ({type: CHANGE_NUMBER, number})
+export let changeAdres = (adres) => ({type: CHANGE_ADRES, adres})
+export let sendOrder = (order) => ({type: SEND_ORDER, order})
 
 
 export let addToCartThunkCreator = (order) => {
     return dispatch => {
         dispatch(addToCart(order));
         dispatch(cartPopUpAC(false))
+    }
+}
+
+
+export let sendOrederThunkCreator = (order, sum) => {
+    return dispatch => {
+        sendOrderApi(order,sum);
     }
 }
 

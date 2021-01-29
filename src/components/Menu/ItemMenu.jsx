@@ -14,10 +14,10 @@ let Item = (props) => {
             <p className={s.price}>{props.price} грн.</p>
         </div>
         <h5>{props.title}</h5>
-        <span className={s.desc}>{props.desc}</span>
-        <span >more...</span>
+        <div className={s.desc}>{props.desc}</div>
+        
         {/* {popUp} */}
-        <NavLink to={'/item' + "/" + props.id} >open more</NavLink>
+        <NavLink to={'/item' + "/" + props.id} className={s.linkMore} >Подробнее...</NavLink>
         {/* <button onClick={props.openPopUp}>open popup</button> */}
         <button className={s.addBtn} onClick={()=>props.addToCart(props)}>Добавить</button>
     </div>
