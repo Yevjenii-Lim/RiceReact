@@ -23,11 +23,11 @@ class ItemCart extends React.Component {
                 </div>
                 <h2>{this.props.product.title}</h2>
                 <p>Цена: {this.props.product.price} грн.</p>
-                <p>Состав:</p>
-                <p>
+                <p className={s.desc}>Состав:</p>
+                <p className={s.desc}>
                     {this.props.product.desc}
                 </p>
-                <button onClick={() => this.props.addToCartThunkCreator(this.props.product)}>Добавить в корзину</button>
+                <button className={s.addBtn} onClick={() => this.props.addToCartThunkCreator(this.props.product)}>Добавить в корзину</button>
             </div>
         }else {
             return <div className={s.itemCart}>

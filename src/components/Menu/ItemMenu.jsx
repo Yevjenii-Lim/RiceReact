@@ -17,7 +17,7 @@ let Item = (props) => {
         <div className={s.desc}>{props.desc}</div>
         
         {/* {popUp} */}
-        <NavLink to={'/item' + "/" + props.id} className={s.linkMore} >Подробнее...</NavLink>
+        <NavLink to={'/item/' + props.id} className={s.linkMore} >Подробнее...</NavLink>
         {/* <button onClick={props.openPopUp}>open popup</button> */}
         <button className={s.addBtn} onClick={()=>props.addToCart(props)}>Добавить</button>
     </div>

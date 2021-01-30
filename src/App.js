@@ -8,6 +8,7 @@ import LoaderContainer from './components/MenuAndLoader/Loader';
 import MobileMenuContainer from './components/MenuAndLoader/MobileMenu';
 import CartPop from './components/PopUp/CartPopUp';
 import ItemCart from './components/Products/itemCart';
+import RiceContainer from './components/Products/RiceNoodlesContainer';
 // import PopUpContainer from './components/PopUp/PopUp';
 import RollsContainer from './components/Products/RollsContainer';
 import SetsContainer from './components/Products/SetsContainer';
@@ -27,6 +28,7 @@ function App() {
     <Route exact path='/rolls'> <RollsContainer></RollsContainer> </Route>
     <Route exact path='/sets'> <SetsContainer></SetsContainer> </Route>
     <Route path='/item/:productId?'> <ItemCart></ItemCart> </Route>
+    <Route path='/rice'> <RiceContainer></RiceContainer> </Route>
    <CartPop></CartPop>
    {/* <PopUpContainer></PopUpContainer> */}
    </BrowserRouter>
