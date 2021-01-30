@@ -89,3 +89,16 @@
 .hide {
     display: none;
 }
+
+
+@media screen and (max-width: 350px) {
+    .secrete {
+        display: none;
+    }
+    .cart {
+        margin-left: 40px;
+    }
+    .amount {
+        left: 78%;
+    }
+}

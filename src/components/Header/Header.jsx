@@ -12,26 +12,30 @@ import style from "./style-header.module.css";
 let Header = (props) => {
   // debugger
 
-  let liItems = props.svgList.map((i, index) =><NavLink key={index} to={i.link}> <li >{i.code}</li></NavLink>);
+  let liItems = props.svgList.map((i, index) => (
+    <NavLink key={index} to={i.link} className={i.hide ? style.secrete : null}>
+      {" "}
+      <li className={i.link === '/cart' ? style.cart : null}>{i.code}</li>
+    </NavLink>
+  ));
 
-
-  let allClasses = style.amount + " " + (props.cart.order.length > 0 ? null : style.hide);
+  let allClasses =
+    style.amount + " " + (props.cart.order.length > 0 ? null : style.hide);
 
   return (
     <div onClick={props.offAnimation} className={style.header}>
       <div className={style.logo}>
         <NavLink to="/">
-        <img src={props.srcLogo} alt="Logo" />
+          <img src={props.srcLogo} alt="Logo" />
         </NavLink>
       </div>
       <ul className={style.navBarUl}>
         {liItems}
-    
 
         <div className={allClasses}>
-        {props.cart.order.reduce((a,i) => a + i.amount , 0)}
+          {props.cart.order.reduce((a, i) => a + i.amount, 0)}
         </div>
-    
+
         <button className={style.btn} onClick={props.openMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

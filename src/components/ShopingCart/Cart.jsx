@@ -11,6 +11,7 @@ import {
   changeAdres,
   changeName,
   changeNumber,
+  openExtra,
   removeAmount,
   removeFromCart,
   sendOrederThunkCreator,
@@ -23,6 +24,7 @@ let CartPage = (props) => {
   // console.log(props.cart)
   // debugger
   // console.log(localStorage)
+
   let shopItems = props.cart.order.map((i, index) => {
     // console.log(i)
     return (
@@ -99,6 +101,12 @@ let CartPage = (props) => {
     // props.openMenu()
     // console.log('acara')
   });
+  let openExtra = props.cart.isOpenExtra ?  s.closeExtra : s.openExtra;
+  let rotateChevron = props.cart.isOpenExtra
+  ? s.chevronRound
+  : s.chevronUp;
+  let chevronClass = s.chevron + " " + rotateChevron;
+
   let sum = props.cart.order.reduce((a, i) => a + i.price * i.amount, 0);
   sum += (+props.cart.extraVas + +props.cart.extraSoy + +props.cart.extraImbir) * 15
   return (
@@ -124,9 +132,24 @@ let CartPage = (props) => {
           max="10"
           value={props.cart.studySticks}
         ></input>
-        <p className={s.extraTitle}>Дополнительно - 15грн порция:</p>
+        <p className={s.extraTitle} onClick={props.openExtra}>Дополнительно - 15грн порция
+        <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={chevronClass}
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+        </p>
 
-        <div className={s.extra}>
+        <div className={s.extra + " " + openExtra}>
           <div>
             <p>Васаби: {props.cart.extraVas} порц.</p>
             <input
@@ -205,7 +228,8 @@ let ContainerCart = connect(mapStateToProps, {
   changeName,
   changeNumber,
   changeAdres,
-  sendOrederThunkCreator
+  sendOrederThunkCreator,
+  openExtra
 })(CartPage);
 
 export default ContainerCart;

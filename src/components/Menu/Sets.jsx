@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import SetsSvg from '../../assets/svgIcons/Sets';
 import Item from './ItemMenu';
 import s from "./menu.module.css";
 
@@ -27,7 +28,9 @@ let Sets = (props) => {
       });
     return <div className={s.productsRow}>
     <div className={s.rowTitle}>
-      <p>Сеты</p>
+      <p>Сеты
+      <SetsSvg></SetsSvg>
+      </p>
       {link}
       {/* <NavLink to="/sets">Ceты</NavLink> */}
     </div>

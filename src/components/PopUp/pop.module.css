@@ -2,12 +2,12 @@
   width: 30%;
   background-color: #FF5C00;
   position: fixed;
-  top: 20%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
   animation: showHide 2s 1;
-  padding: 1em;
+  padding: 0.4em;
   color: white;
   border: 3px solid rgb(255, 195, 83);
   text-align: center;

@@ -15,6 +15,8 @@ const CHANGE_NAME = "CHANGE_NAME"
 const CHANGE_NUMBER = "CHANGE_NUMBER"
 const CHANGE_ADRES = "CHANGE_ADRES"
 const SEND_ORDER = "SEND_ORDER"
+const OPEN_EXTRA = "OPEN_EXTRA"
+
 
 let initialState = {
     order: [
@@ -28,6 +30,7 @@ let initialState = {
     name: '',
     number: '',
     adres: '',
+    isOpenExtra: false,
 }
 
 let cartReducer = (state = initialState, action) => {
@@ -151,6 +154,12 @@ let cartReducer = (state = initialState, action) => {
                 ...state
             }
         }
+        case OPEN_EXTRA: {
+            return {
+                ...state,
+                isOpenExtra: !state.isOpenExtra
+            }
+        }
         default: return state
     }
 
@@ -170,6 +179,8 @@ export let changeName = (name) => ({type: CHANGE_NAME, name})
 export let changeNumber = (number) => ({type: CHANGE_NUMBER, number})
 export let changeAdres = (adres) => ({type: CHANGE_ADRES, adres})
 export let sendOrder = (order) => ({type: SEND_ORDER, order})
+export let openExtra = () => ({type: OPEN_EXTRA})
+
 
 
 export let addToCartThunkCreator = (order) => {

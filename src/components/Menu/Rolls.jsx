@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import RollsSvg from "../../assets/svgIcons/Rolls";
 import Item from "./ItemMenu";
 import s from "./menu.module.css";
 
@@ -31,7 +32,10 @@ let Rolls = (props) => {
   return (
     <div className={s.productsRow} id="section1">
       <div className={s.rowTitle}>
-        <p>Роллы</p>
+        <p>Роллы
+          <RollsSvg></RollsSvg>
+        </p>
+    
        {link}      
       </div>
       <div className={s.row}>{items}</div>

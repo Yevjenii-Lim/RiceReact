@@ -199,6 +199,8 @@ input[type=range] {
 
 .extraTitle {
     font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 .extra {
     display: flex;
@@ -206,6 +208,8 @@ input[type=range] {
     width: 100%;
     /* border: 1px solid black; */
     flex-wrap: wrap;
+    overflow: hidden;
+    transition: 0.5s;
 }
 
 .extra input[type=range] {
@@ -222,7 +226,7 @@ input[type=range] {
 .delivery {
     display: flex;
     flex-direction: column;
-
+    margin-top: 10px;
 }
 .delivery input {
     outline: none;
@@ -281,4 +285,26 @@ input[type=range] {
 .total .sum {
     font-weight: bold;
     font-size: 20px;
+}
+
+
+.openExtra {
+    height: 5px;
+    overflow: hidden;
+}
+
+.closeExtra {
+    height: 160px;
+}
+
+
+.chevron {
+    transition: 0.5s;
+}
+.chevronUp {
+    transform: rotate(0deg);
+}
+
+.chevronRound {
+    transform: rotate(180deg);
 }
