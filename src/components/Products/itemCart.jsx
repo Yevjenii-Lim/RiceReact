@@ -22,7 +22,7 @@ class ItemCart extends React.Component {
                     <img src={this.props.product.photo} alt=""/>
                 </div>
                 <h2>{this.props.product.title}</h2>
-                <p>Цена: {this.props.product.price} грн.</p>
+                <p className={s.price}>Цена: {this.props.product.price} грн.</p>
                 <p className={s.desc}>Состав:</p>
                 <p className={s.desc}>
                     {this.props.product.desc}

@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Instagram from "../../assets/svgIcons/instagram";
+import PhoneCall from "../../assets/svgIcons/PhoneCall";
 // import { bounce } from 'react-animations';
 import style from "./style-header.module.css";
 // import styled from "styled-components";
@@ -30,6 +32,8 @@ let Header = (props) => {
         </NavLink>
       </div>
       <ul className={style.navBarUl}>
+        <a className={ style.secrete} href="https://www.instagram.com/rice_sushi_bar/?hl=ru"><Instagram> </Instagram></a>
+        <a className={ style.secrete}  href="tel:+380669105250"> <PhoneCall></PhoneCall> </a>
         {liItems}
 
         <div className={allClasses}>

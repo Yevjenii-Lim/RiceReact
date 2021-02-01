@@ -22,7 +22,7 @@ let MobileMenu = (props) => {
     <li key={i.id}><NavLink to={i.link} onClick={props.openMenu}>{i.name}</NavLink></li> 
   ));
 
-  let showAdress = props.isAdressOpen ? style.subMenuOpen : style.subMenuClose;
+  let showAdress = props.isAdressOpen ? style.subMenuOpenAdress : style.subMenuClose;
   let adressListClasess = style.menuList + " " + showAdress;
   let rotateAdress = props.isAdressOpen ? style.chevronRound : style.chevronUp;
   let adressChevron = style.chevron + " " + rotateAdress;

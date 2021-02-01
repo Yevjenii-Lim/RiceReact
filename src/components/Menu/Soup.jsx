@@ -1,21 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import SushiSvg from "../../assets/svgIcons/Sushi";
+import SoupSvg from "../../assets/svgIcons/Suop";
 import Item from "./ItemMenu";
 import s from "./menu.module.css";
-import RollsSvg from '../../assets/svgIcons/Rolls';
 import SetsSvg from '../../assets/svgIcons/Sets';
-import SoupSvg from '../../assets/svgIcons/Suop';
+import RollsSvg from '../../assets/svgIcons/Rolls';
+import SushiSvg from '../../assets/svgIcons/Sushi';
 
 
-let RiceNudles = (props) => {
+let Soup = (props) => {
     // debugger
     // console.log(props)
     let link = null
     if(!props.match) {
-        link = <NavLink className={s.more} to="/rice">Ещё</NavLink>
+        link = <NavLink className={s.more} to="/soup">Ещё</NavLink>
     }
-  let items = props.menu.riceNoodles.map((i) => {
+  let items = props.menu.soups.map((i) => {
     return (
       <Item
         title={i.title}
@@ -34,8 +34,8 @@ let RiceNudles = (props) => {
   return (
     <div className={s.productsRow} id="section1">
       <div className={s.rowTitle}>
-        <p>Лапша/Рис
-          <SushiSvg></SushiSvg>
+        <p>Супы
+          <SoupSvg></SoupSvg>
         </p>
     
        {link}      
@@ -64,4 +64,4 @@ let RiceNudles = (props) => {
   );
 };
 
-export default RiceNudles;
+export default Soup;

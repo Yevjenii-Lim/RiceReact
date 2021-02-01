@@ -8,7 +8,7 @@ let initialState = {
     subMenuItems: [
         {name: 'Сеты', id:1 , link: '/sets'},
         {name: 'Ролы', id:2, link: '/rolls' },
-        {name: 'Супы', id:3, link: '/sup'},
+        {name: 'Супы', id:3, link: '/soup'},
         {name: 'Лапша/Рис', id:4, link: '/rice'},
         {name: 'Салаты', id:5, link: '/salats'},
         {name: 'Маки', id:6, link: '/maki'}

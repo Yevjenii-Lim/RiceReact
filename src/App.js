@@ -12,8 +12,11 @@ import RiceContainer from './components/Products/RiceNoodlesContainer';
 // import PopUpContainer from './components/PopUp/PopUp';
 import RollsContainer from './components/Products/RollsContainer';
 import SetsContainer from './components/Products/SetsContainer';
+import SoupContainer from './components/Products/SoupContainer';
 import CartPage from './components/ShopingCart/Cart';
 import SwiperComponent from './components/Swiper';
+
+
 
 function App() {
   return (
@@ -29,6 +32,7 @@ function App() {
     <Route exact path='/sets'> <SetsContainer></SetsContainer> </Route>
     <Route path='/item/:productId?'> <ItemCart></ItemCart> </Route>
     <Route path='/rice'> <RiceContainer></RiceContainer> </Route>
+    <Route path='/soup'> <SoupContainer></SoupContainer> </Route>
    <CartPop></CartPop>
    {/* <PopUpContainer></PopUpContainer> */}
    </BrowserRouter>

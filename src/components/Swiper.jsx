@@ -17,8 +17,8 @@ let SwiperComponent = (props) => {
  let SwiperItem = props.images.map(i => {
  return <SwiperSlide key={i.id}><img className={s.swiperPhoto} src={i.photo} alt="slider"/>
  <div>
-     <h1>Attenition</h1>
-     <p>Hello </p>
+     <h1>Доставка суши</h1>
+     <p>Бесплатная доставка при заказе от 250грн</p>
      <Link to="section1"
        smooth={true}
        offset={-70}

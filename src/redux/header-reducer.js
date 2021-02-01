@@ -1,6 +1,4 @@
 import logo from '../assets/images/logotip2.png'
-import Instagram from '../assets/svgIcons/instagram'
-import PhoneCall from '../assets/svgIcons/PhoneCall'
 import ShopingCart from '../assets/svgIcons/ShopingCart'
 
 
@@ -14,8 +12,8 @@ let initialState = {
     srcLogo: logo,
     isShowLoader: true,
     svgList: [
-        {code: <Instagram></Instagram>, link:'https://rice.ks.ua/', hide: true},
-        {code: <PhoneCall></PhoneCall>, link: '+380 50 678 43 20', hide: true},
+        // {code: <Instagram></Instagram>, link:'https://rice.ks.ua/', hide: true},
+        // {code: <PhoneCall></PhoneCall>, link: '+380 50 678 43 20', hide: true},
         {code: <ShopingCart></ShopingCart>, link: '/cart'}
     ],
     animation: false,

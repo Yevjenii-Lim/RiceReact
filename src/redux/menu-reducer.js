@@ -1,3 +1,5 @@
+import React from 'react';
+
 import kali from "../assets/images/kali-crab.jpeg";
 import dakota from "../assets/images/dakota.jpg";
 import setRice from "../assets/images/rice-max.jpeg";
@@ -5,13 +7,19 @@ import udonChiken from "../assets/images/udon-chiken.jpg";
 import riceShrimp from "../assets/images/rice-shrimp.jpg";
 import udonSea from "../assets/images/udon-sea.jpg";
 import chikenTiryaki from "../assets/images/chiken-tiryaki.jpg";
+import soupKimchi from "../assets/images/soup-kimchi.jpg";
+import soupMiso from "../assets/images/soup-miso.jpg";
+import soupTom from "../assets/images/soup-tom.jpg";
+import { SearchRedirect, } from "../components/Redirect";
 
 
 // import { act } from "react-dom/test-utils";
 // import { getItem } from "./item-reducer";
 const OPEN_POP = "OPEN_POP"
 const GET_PRODUCT = "GET_PRODUCT"
-
+const SEARCH = "SEARCH"
+const START_SEARCH = "START_SEARCH"
+let random 
 
 let initialState = {
   rolls: [
@@ -128,7 +136,40 @@ let initialState = {
         isModalOpen: false,
         amount : 1
     },
-  ]
+  ],
+  soups: [
+    {
+      title: "Суп «Кимчи с тунцом»",
+      price: 50,
+      id: 12,
+      photo: soupKimchi,
+      desc:
+        "Рыбный бульон, тунец, гриб шиитаке, соус ким-чи, яйцо Курин, перец болг, кабачек,редька маринов,возросли вакаме Вес: 300грамм",
+        isModalOpen: false,
+        amount : 1
+    },
+    {
+      title: "«Мисо широ с угрем»",
+      price: 49,
+      id: 13,
+      photo: soupMiso,
+      desc:
+        "рыбный бульен, мисо паста, угорь, гриб шиитаке, водросли вакаме Вес: 300грамм",
+        isModalOpen: false,
+        amount : 1
+    },
+    {
+      title: "Суп «Том-Ям»",
+      price: 89,
+      id: 14,
+      photo: soupTom,
+      desc:
+        "рыбный бульен, кокосовое молоко, лосось, креветки, мидии, гриб шиитаке, соус ким-чи ,водросли вакаме. Вес: 300грамм",
+        isModalOpen: false,
+        amount : 1
+    },
+  ],
+  search: '',
 };
 
 let menuReducer = (state = initialState, action) => {
@@ -144,12 +185,28 @@ let menuReducer = (state = initialState, action) => {
         product = state.sets.find(i => i.id === +action.id)
         if(product === undefined) {
           product = state.riceNoodles.find(i => i.id === +action.id)
+          if(product === undefined) {
+            product = state.soups.find(i => i.id === +action.id)
+          }
         }
       }
 
       return {
         ...state,
         product
+      }
+    }
+    case SEARCH: {
+      return {
+        ...state,
+        search: action.text
+      }
+    }
+    case START_SEARCH: {
+      let item = state.rolls.find(i => i.title == state.search)
+      random = item.id
+      return {
+        ...state
       }
     }
     default: return state
@@ -160,5 +217,16 @@ let menuReducer = (state = initialState, action) => {
 
 export const getProduct = (id) => ({type: GET_PRODUCT, id})
 export const setModal = (id) => ({type: OPEN_POP, id})
+export const chengeSearch = (text) => ({type: SEARCH, text})
+export const startSearch = (text) => ({type: START_SEARCH, text})
+
+export let searchThunkCreactor = (text) => {
+  return dispatch => {
+    dispatch(startSearch(text))
+    console.log(random);
+    SearchRedirect(random)
+  }
+}
+
 
 export default menuReducer;

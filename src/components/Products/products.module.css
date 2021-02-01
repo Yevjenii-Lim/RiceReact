@@ -5,8 +5,8 @@
 }
 
 .itemCart {
-    padding: 0 1em;
-    padding-top: 4em;
+    padding: 4em 1em;
+ 
 }
 
 .itemCart h2 {
@@ -34,4 +34,8 @@
     cursor: pointer;
     display: block;
     margin-top: 15px;
+}
+
+.price {
+    font-weight: bold;
 }

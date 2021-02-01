@@ -16,7 +16,7 @@ const CHANGE_NUMBER = "CHANGE_NUMBER"
 const CHANGE_ADRES = "CHANGE_ADRES"
 const SEND_ORDER = "SEND_ORDER"
 const OPEN_EXTRA = "OPEN_EXTRA"
-
+const SET_CART = "SET_CART"
 
 let initialState = {
     order: [
@@ -38,6 +38,7 @@ let cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TO_CART: {
           let orderN = {...action.order}
+         
            let index =  state.order.findIndex((i, index ) => {
                 if(i.id === orderN.id) {
                  return true
@@ -160,8 +161,21 @@ let cartReducer = (state = initialState, action) => {
                 isOpenExtra: !state.isOpenExtra
             }
         }
+        case SET_CART: {
+            // console.log(action.cart)
+            let newCart = action.cart;
+            return {
+                ...state,
+               ...newCart
+            }
+        }
+        case "storage": {
+            localStorage.setItem('cart', JSON.stringify(state))
+            // console.log(state)
+        }
         default: return state
     }
+
 
 }
 
@@ -180,13 +194,14 @@ export let changeNumber = (number) => ({type: CHANGE_NUMBER, number})
 export let changeAdres = (adres) => ({type: CHANGE_ADRES, adres})
 export let sendOrder = (order) => ({type: SEND_ORDER, order})
 export let openExtra = () => ({type: OPEN_EXTRA})
-
-
+export let setCart = (cart) => ({type:SET_CART, cart})
+let addToStorage = () => ({type: 'storage'})
 
 export let addToCartThunkCreator = (order) => {
     return dispatch => {
         dispatch(addToCart(order));
         dispatch(cartPopUpAC(false))
+        dispatch(addToStorage())
     }
 }
 
