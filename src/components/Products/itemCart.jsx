@@ -12,8 +12,6 @@ class ItemCart extends React.Component {
         this.props.getProduct(this.props.match.params.productId)
         // console.log(this.props)
     }
-
-
     render() {
         if(this.props.product !== undefined) {
             // console.log(this.props.product)

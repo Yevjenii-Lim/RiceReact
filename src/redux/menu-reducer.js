@@ -1,4 +1,3 @@
-import React from 'react';
 
 import kali from "../assets/images/kali-crab.jpeg";
 import dakota from "../assets/images/dakota.jpg";
@@ -202,13 +201,13 @@ let menuReducer = (state = initialState, action) => {
         search: action.text
       }
     }
-    case START_SEARCH: {
-      let item = state.rolls.find(i => i.title == state.search)
-      random = item.id
-      return {
-        ...state
-      }
-    }
+    // case START_SEARCH: {
+    //   let item = state.rolls.find(i => i.title == state.search)
+    //   random = item.id
+    //   return {
+    //     ...state
+    //   }
+    // }
     default: return state
   }
   // return state;

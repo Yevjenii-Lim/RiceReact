@@ -31,7 +31,7 @@ let Sets = (props) => {
     return <div className={s.productsRow}>
     <div className={s.rowTitle}>
       <p>Сеты
-      <SetsSvg></SetsSvg>
+      <SetsSvg />
       </p>
       {link}
       {/* <NavLink to="/sets">Ceты</NavLink> */}
