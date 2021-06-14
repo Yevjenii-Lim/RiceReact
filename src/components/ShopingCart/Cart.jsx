@@ -9,6 +9,7 @@ import s from "./cart.module.css";
 let sum = (a) => {
   // console.log(a)
   if (a.length === 0) return 0
+
   return a.map(i => i.price * i.amount).reduce((a,b) => a + b, 0)
 }
 
@@ -35,7 +36,7 @@ let Cart = (props) => {
   }
   // console.log(props.order)
   // let orderSum = props.order.reduce((a,b) => sum(a) + sum(b), sum({price: 0, amount: 1}))
-  let amountArr = props.order.map(i => sum(i))
+  // let amountArr = props.order.map(i => sum(i))
   let orderSum = sum(props.order)
   console.log(orderSum)
   return <div className={s.cart}>
