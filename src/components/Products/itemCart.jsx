@@ -1,56 +1,48 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
-import { addToCartThunkCreator } from '../../redux/cart-reducer'
-import { getProduct } from '../../redux/menu-reducer'
 import s from './products.module.css'
 
 
-class ItemCart extends React.Component {
+let ItemCart = (props) => {
 
-    componentDidMount() {
-        this.props.getProduct(this.props.match.params.productId)
-        // console.log(this.props)
-    }
-    render() {
-        if(this.props.product !== undefined) {
-            // console.log(this.props.product)
-            return <div className={s.itemCart}>
-                <div className={s.productPhoto}>
-                    <img src={this.props.product.photo} alt=""/>
-                </div>
-                <h2>{this.props.product.title}</h2>
-                <p className={s.price}>Цена: {this.props.product.price} грн.</p>
-                <p className={s.desc}>Состав:</p>
-                <p className={s.desc}>
-                    {this.props.product.desc}
-                </p>
-                <button className={s.addBtn} onClick={() => this.props.addToCartThunkCreator(this.props.product)}>Добавить в корзину</button>
-            </div>
-        }else {
-            return <div className={s.itemCart}>
-                wait for load
-            </div>
+    let [item, setItem] = useState({})
+ 
+    useEffect(() => {
+        let id = props.match.params.productId
+
+        let request = async () => {
+        let data = await axios.get("https://rice-api-flask.herokuapp.com/item/" + id)
+        setItem(data.data.item)
         }
-  
+        try {
+            request()
+        } catch (error) {
+            console.log(error)
+        }
+    
+    }, [props.match.params.productId])
+
+    if (!item) {
+        return null
     }
+
+    return <div className={s.itemCart}>
+    <div className={s.productPhoto}>
+        <img src={item.img} alt=""/>
+    </div>
+    <h2>{item.title}</h2>
+    <p className={s.price}>Цена: {item.price} грн.</p>
+    <p className={s.desc}>Состав:</p>
+    <p className={s.desc}>
+        {item.desc}
+    </p>
+    <button className={s.addBtn} onClick={()=> props.addToCart(item)}>Добавить в корзину</button>
+</div>
 }
-let mapStateToProps = (state) => {
-
-    return {
-        product: state.menu.product
-    }
-}
 
 
-let mapDispatchToProps =  {
-    getProduct,
-    addToCartThunkCreator
-}
 
-
-let containerItem = connect(mapStateToProps,mapDispatchToProps)(ItemCart)
-
-let withRouteData = withRouter(containerItem)
+let withRouteData = withRouter(ItemCart)
 
 export default withRouteData

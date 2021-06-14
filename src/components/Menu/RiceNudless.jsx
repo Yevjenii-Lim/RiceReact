@@ -3,63 +3,45 @@ import { NavLink } from "react-router-dom";
 import SushiSvg from "../../assets/svgIcons/Sushi";
 import Item from "./ItemMenu";
 import s from "./menu.module.css";
-import RollsSvg from '../../assets/svgIcons/Rolls';
-import SetsSvg from '../../assets/svgIcons/Sets';
-import SoupSvg from '../../assets/svgIcons/Suop';
-
+import Loadercss from "../MenuAndLoader/Loadercss";
 
 let RiceNudles = (props) => {
-    // debugger
-    // console.log(props)
-    let link = null
-    if(!props.match) {
-        link = <NavLink className={s.more} to="/rice">Ещё</NavLink>
-    }
-  let items = props.menu.riceNoodles.map((i) => {
+  // debugger
+  // console.log(props);
+  let link = null;
+  if (props.riceNoodles == null) return <Loadercss></Loadercss>;
+
+  if (!props.match) {
+    link = (
+      <NavLink className={s.more} to="/rice">
+        Ещё
+      </NavLink>
+    );
+  }
+  let items = props.riceNoodles.map((i) => {
     return (
       <Item
         title={i.title}
-        photo={i.photo}
+        photo={i.img}
         desc={i.desc}
         key={i.id}
         price={i.price}
-        addToCart={props.addToCartThunkCreator}
-        openPopUp={props.openPopUp}
         id={i.id}
-        amount={i.amount}
-        // popUp={props.popUp.isOpen}
+        type={i.type}
       ></Item>
     );
   });
   return (
     <div className={s.productsRow} id="section1">
       <div className={s.rowTitle}>
-        <p>Лапша/Рис
+        <p>
+          Лапша/Рис
           <SushiSvg></SushiSvg>
         </p>
-    
-       {link}      
+
+        {link}
       </div>
       <div className={s.row}>{items}</div>
-      <div className={s.bottomNav}>
-                <NavLink className={s.links} to='/rolls'>
-                    <RollsSvg></RollsSvg>
-                    <p>Роллы</p>
-                </NavLink>
-                <NavLink className={s.links} to='/sets'>
-                    <SetsSvg></SetsSvg>
-                    <p>Сеты</p>
-                </NavLink>
-                <NavLink className={s.links} to='/rice'>
-                    <SushiSvg></SushiSvg>
-                    <p>Лапша/рис</p>
-                </NavLink>
-                <NavLink className={s.links} to='/soup'>
-                    <SoupSvg></SoupSvg>
-                    <p>Супы</p>
-                </NavLink>
-
-            </div>
     </div>
   );
 };
